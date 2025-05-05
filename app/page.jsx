@@ -1,11 +1,20 @@
 import Link from "next/link"
+import Hero from "@/components/Hero"
+import InfoBoxes from "@/components/InfoBoxes"
+import HomeProperties from "@/components/HomeProperties"
+import connectDB from "@/config/database"
+
+
 
 const HomePage = () => {
+  // console.log(process.env.MONGODB_URI);
+  connectDB()
   return (
-    <div>
-      <div className="text-3xl underline">Welcome</div>
-      <Link href="/properties?name-test ">Go To Properties</Link>
-    </div>
+    <>
+    <Hero />
+    <InfoBoxes />
+    <HomeProperties />
+    </>
   )
 }
 

@@ -6,8 +6,8 @@ import { useState } from 'react'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import {FaGoogle} from 'react-icons/fa'
-
 import ProfileDefault from '@/assets/images/profile.png'
 import logo from '@/assets/images/logo-white.png'
 
@@ -15,10 +15,12 @@ import logo from '@/assets/images/logo-white.png'
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [IsProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const pathName = usePathname()
 
-
+    const gradientColor = 'gradient-background'
   return (
-    <nav className="bg-blue-700 border-b border-blue-500">
+    <nav className={` ${gradientColor} border-b-1 border-purple-300`}>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -61,7 +63,7 @@ const Navbar = () => {
                 alt="KejaSpot"
                 />
 
-                <span className="hidden md:block text-white text-2xl font-bold ml-2"
+                <span className="md:block text-white text-2xl font-bold ml-2"
                 >KejaSpot</span
                 >
             </Link>
@@ -70,24 +72,27 @@ const Navbar = () => {
                 <div className="flex space-x-2">
                 <Link
                     href="/"
-                    className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                    className={`${pathName === '/'? 'bg-black':''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                     >Home
                 </Link>
                 <Link
                     href="/properties"
-                    className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                    className={`${pathName === '/properties'? 'bg-black':''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                     >Properties
                 </Link>
+                {isLoggedIn && (
                 <Link
                     href="/properties/add"
-                    className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                    className={`${pathName === '/properties/add'? 'bg-black':''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                     >Add Property
                 </Link>
+                )}
                 </div>
             </div>
             </div>
 
             {/* <!-- Right Side Menu (Logged Out) --> */}
+            {!isLoggedIn && (
             <div className="hidden md:block md:ml-6">
             <div className="flex items-center">
                 <button
@@ -98,8 +103,10 @@ const Navbar = () => {
                 </button>
             </div>
             </div>
+            )}
 
             {/* <!-- Right Side Menu (Logged In) --> */}
+            {isLoggedIn && (
             <div
             className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0"
             >
@@ -191,6 +198,8 @@ const Navbar = () => {
                 )}
             </div>
             </div>
+
+            )}
         </div>
         </div>
 
@@ -199,27 +208,32 @@ const Navbar = () => {
         <div className="space-y-1 px-2 pb-3 pt-2">
             <Link
             href="/"
-            className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium"
+            className={`${pathName === '/'? 'bg-black': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
             >Home
             </Link>
 
             <Link
             href="/properties"
-            className="text-white block rounded-md px-3 py-2 text-base font-medium"
+            className={`${pathName === '/properties'? 'bg-black': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
             >Properties
             </Link>
+            {isLoggedIn && (
+
             <Link
             href="/properties/add"
-            className="text-white block rounded-md px-3 py-2 text-base font-medium"
+            className={`${pathName === '/properties/add'? 'bg-black': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
             >Add Property
             </Link>
+            )}
+            {!isLoggedIn && (
             <button
             className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5"
             >
             <FaGoogle className='text-white mr-2' />
             <span>Login/Register</span>
             </button>
-        </div>
+            )}
+        </div> 
         </div> )}
   </nav>
   )

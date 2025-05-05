@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+.gradient-background {
+    background-image:
+    radial-gradient(circle at 10% 20%, rgba(236, 116, 176, 0.6) 10%, transparent 45%),
+    radial-gradient(circle at 30% 40%, rgba(138, 32, 236, 0.45) 20%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(255, 182, 193, 0.4) 20%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(112, 157, 241, 0.3) 15%, transparent 45%);
+  background-color: #5023e0; /* Deep purple base for elegance */
+}
+
+.gradient-button {
+  @apply px-5 py-2 rounded-xl text-white font-semibold 
+  bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 
+  hover:from-pink-500 hover:to-blue-600 
+  shadow-lg transition duration-300 ease-in-out;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-btn {
+  @apply px-5 py-2 rounded-xl text-white font-semibold shadow-lg transition duration-300 ease-in-out;
+  background-image: linear-gradient(270deg, #155bcc, #5316e2, #ee1682);
+  background-size: 600% 600%;
+  animation: gradient-move 5s ease infinite;
+}
+
+.animated-gradient-btn:hover {
+  background-image: none;
+  background-color: rgb(14, 184, 14);
+}

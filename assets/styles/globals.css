@@ -30,7 +30,7 @@
 
 .animated-gradient-btn {
   @apply px-5 py-2 rounded-xl text-white font-semibold shadow-lg transition duration-300 ease-in-out;
-  background-image: linear-gradient(270deg, #155bcc, #5316e2, #ee1682);
+  background-image: linear-gradient(270deg, #155bcc, #5316e2, #3b1f2d);
   background-size: 600% 600%;
   animation: gradient-move 5s ease infinite;
 }

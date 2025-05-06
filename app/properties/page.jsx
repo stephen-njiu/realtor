@@ -1,10 +1,12 @@
-import Link from "next/link"
-import properties from '@/app/properties.json'
-
+import connectDB from "@/config/database"
 import PropertyCard from "@/components/PropertyCard"
 
+import Property from "@/models/Property"
 
-const PropertiesPage = () => {
+
+const PropertiesPage = async() => {
+  await connectDB()
+  const properties = await Property.find({}).lean() // use lean for read only operations
   return (
     <section className="px-4 py-6">
       <div className="contianer-xl lg:container m-auto px-4 py-6">

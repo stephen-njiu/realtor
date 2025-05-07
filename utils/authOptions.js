@@ -18,10 +18,10 @@ export const authOptions = {
     ],
     callbacks: {
         // Invoked on successful sign in
-        async signIn({profile}) {
+        async signIn({ profile }) {
             // 1. Connet to the database
             await connectDB()
-            //2. Check if hte user exists
+            //2. Check if the user exists
             const userExists = await User.findOne({email: profile.email})
             // 3. if not, create user
             if (!userExists) {
@@ -39,7 +39,7 @@ export const authOptions = {
 
         },
         //Session callback function that modifies the session object
-        async session({session}) {
+        async session({ session }) {
             // 1. Get user from database
             const user = await User.findOne({email: session.user.email})
             // 2. Assign user id from the session

@@ -10,7 +10,7 @@ const LoadingPage = () => {
   return (
     <ClipLoader color='#3b1f2d'
         cssOverride={override}
-        size={150}
+        size={100}
         aria-label='Loading Spinner' />
   )
 }

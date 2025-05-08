@@ -337,7 +337,7 @@ const PropertyAddForm = () => {
               <input
                 type="text"
                 id="seller_name"
-                name="seller_info.name."
+                name="seller_info.name"
                 className="border rounded w-full py-2 px-3"
                 placeholder="Name"
               />
@@ -380,7 +380,7 @@ const PropertyAddForm = () => {
                 type="file"
                 id="images"
                 name="images"
-                className="border rounded w-full py-2 px-3"
+                className="border rounded w-full py-2 px-3 text-red-500"
                 accept="image/*"
                 multiple
                 required

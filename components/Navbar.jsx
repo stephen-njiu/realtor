@@ -31,7 +31,7 @@ const Navbar = () => {
 
     const gradientColor = 'gradient-background'
   return (
-    <nav className={` ${gradientColor} border-b-1 border-purple-300`}>
+    <nav className={` ${gradientColor} border-b-1 border-purple-300 font-bolder`}>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -83,18 +83,18 @@ const Navbar = () => {
                 <div className="flex space-x-2">
                 <Link
                     href="/"
-                    className={`${pathName === '/'? 'bg-black':''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    className={`${pathName === '/'? 'modern-button':''} text-white hover:bg-purple-700 hover:text-white rounded-md px-3 py-2`}
                     >Home
                 </Link>
                 <Link
                     href="/properties"
-                    className={`${pathName === '/properties'? 'bg-black':''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    className={`${pathName === '/properties'? 'modern-button':''} text-white hover:bg-purple-700 hover:text-white rounded-md px-3 py-2`}
                     >Properties
                 </Link>
                 {session && (
                 <Link
                     href="/properties/add"
-                    className={`${pathName === '/properties/add'? 'bg-black':''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    className={`${pathName === '/properties/add'? 'modern-button':''} text-white hover:bg-purple-700 hover:text-white rounded-md px-3 py-2`}
                     >Add Property
                 </Link>
                 )}
@@ -111,7 +111,7 @@ const Navbar = () => {
                         <button
                             key={index}
                             onClick={() => signIn(provider.id)}
-                            className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                            className="flex items-center text-white modern-button hover:bg-purple-500 hover:text-white rounded-md px-3 py-2"
                             >
                             <FaGoogle className='text-white mr-2' />
                             <span>Login/Register</span>
@@ -232,20 +232,23 @@ const Navbar = () => {
         <div className="space-y-1 px-2 pb-3 pt-2">
             <Link
             href="/"
-            className={`${pathName === '/'? 'bg-black': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
+            className={`${pathName === '/'? 'modern-button': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
+            onClick={() => setIsMobileMenuOpen(false)}
             >Home
             </Link>
 
             <Link
             href="/properties"
-            className={`${pathName === '/properties'? 'bg-black': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
+            className={`${pathName === '/properties'? 'modern-button': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
+            onClick={() => setIsMobileMenuOpen(false)}
             >Properties
             </Link>
             {session && (
 
             <Link
             href="/properties/add"
-            className={`${pathName === '/properties/add'? 'bg-black': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`${pathName === '/properties/add'? 'modern-button': ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
             >Add Property
             </Link>
             )}

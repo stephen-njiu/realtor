@@ -7,6 +7,7 @@ import { FaTimes,
 
 import PropertyMap from "./PropertyMap"
 
+
 const PropertyDetails = ({property}) => {
     const currency = "Ksh "
   return (
@@ -33,7 +34,7 @@ const PropertyDetails = ({property}) => {
                   className="flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0"
                 >
                   <div className="text-gray-500 mr-2 font-bold">Hourly</div>
-                  <div className="text-2xl font-bold text-blue-500">
+                  <div className="text-xl font-bold text-blue-500">
                     {property.rates.hourly ? (
                         `${currency}${property.rates.hourly.toLocaleString()}`
                     ): (
@@ -45,7 +46,7 @@ const PropertyDetails = ({property}) => {
                   className="flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0"
                 >
                   <div className="text-gray-500 mr-2 font-bold">Nightly</div>
-                  <div className="text-2xl font-bold text-blue-500">
+                  <div className="text-xl font-bold text-blue-500">
                     {property.rates.nightly ? (
                         `${currency}${property.rates.nightly.toLocaleString()}`
                     ): (
@@ -57,7 +58,7 @@ const PropertyDetails = ({property}) => {
                   className="flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0"
                 >
                   <div className="text-gray-500 mr-2 font-bold">Weekly</div>
-                  <div className="text-2xl font-bold text-blue-500">
+                  <div className="text-xl font-bold text-blue-500">
                   {property.rates.weekly ? (
                         `${currency}${property.rates.weekly.toLocaleString()}`
                     ): (
@@ -67,7 +68,7 @@ const PropertyDetails = ({property}) => {
                 </div>
                 <div className="flex items-center justify-center mb-4 pb-4 md:pb-0">
                   <div className="text-gray-500 mr-2 font-bold">Monthly</div>
-                  <div className="text-2xl font-bold text-blue-500">
+                  <div className="text-xl font-bold text-blue-500">
                   {property.rates.monthly ? (
                         `${currency}${property.rates.monthly.toLocaleString()}`
                     ): (
@@ -117,7 +118,9 @@ const PropertyDetails = ({property}) => {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-              <PropertyMap property={property} />
+              <PropertyMap
+               property={property} 
+               />
             </div>
           </main>
   )
